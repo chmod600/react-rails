@@ -9,7 +9,7 @@ class RealtimeUpdateTest < ActiveSupport::TestCase
     def assert_counter_count(page, timer_name, count)
       assert page.has_content?("#{timer_name} - #{count}"), <<~MSG
         #{page.body}
-        #{page.driver.browser.logs.get(:browser).inspect}
+        #{page.driver.browser.manage.logs.get(:browser).inspect}
       MSG
     end
 
@@ -28,10 +28,9 @@ class RealtimeUpdateTest < ActiveSupport::TestCase
 
       assert_counter_count(page, "Counter 1", 0)
       page.click_button "Increment Counter 1"
-      assert_counter_count(page, "Counter 1", 1)
-
       page.click_button "Add counter"
       sleep 0.1
+
       assert_counter_count(page, "Counter 1", 1)
       assert_counter_count(page, "Counter 2", 0)
     end

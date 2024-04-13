@@ -4,6 +4,7 @@ appraise 'sprockets_4' do
   gem 'sprockets-rails'
   gem 'turbolinks', '~> 5'
   gem 'mini_racer', :platforms => :mri
+  gem 'turbo-rails'
 end
 
 appraise 'sprockets_3' do
@@ -12,6 +13,7 @@ appraise 'sprockets_3' do
   gem 'sprockets-rails'
   gem 'turbolinks', '~> 5'
   gem 'mini_racer', :platforms => :mri
+  gem 'turbo-rails'
 end
 
 appraise 'shakapacker' do
@@ -21,9 +23,5 @@ appraise 'shakapacker' do
 end
 
 appraise 'base' do
-  # Appraisal adds `turbolinks` to this gemfile because it is
-  # present in `./Gemfile`.
-  # But it causes this gemfile to break, so it must be removed
-  # from `./gemfiles/rails_5_no_sprockets.gemfile` manually.
   gem 'rails', '~> 7.0.x'
 end
